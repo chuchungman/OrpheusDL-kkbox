@@ -1,0 +1,19 @@
+defusedxml>=0.7.1
+pycryptodomex>=3.10.1
+requests>=2.25.1
+aiohttp>=3.8.0
+aiofiles>=0.8.0
+Pillow>=8.2.0
+tqdm>=4.60.0
+mutagen>=1.45.1
+ffmpeg-python>=0.2.0
+m3u8>=2.0.0
+protobuf>=6.33.0,<7
+pkce>=1.0.3
+pywidevine
+yt-dlp
+# Dependencies for vendored librespot (Spotify module)
+# Note: protobuf is excluded - we use PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION='python' instead
+pyogg>=0.6.14a.1
+websocket-client>=1.8.0
+zeroconf>=0.146.4
