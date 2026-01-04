@@ -64,8 +64,13 @@ sanitise_name = lambda name: re.sub(r'[:]', ' - ', re.sub(r'[\\/*?"<>|$]', '', r
 
 
 def fix_byte_limit(path: str, byte_limit=250):
-    # only needs the relative path, the abspath uses already existing folders
-    rel_path = os.path.relpath(path).replace('\\', '/')
+    # Normalize path separators - handle both absolute and relative paths
+    # Try to get relative path, but fall back to absolute if on different drive
+    try:
+        rel_path = os.path.relpath(path).replace('\\', '/')
+    except ValueError:
+        # Path is on a different drive, use absolute path instead
+        rel_path = os.path.normpath(path).replace('\\', '/')
 
     # split path into directory and filename
     directory, filename = os.path.split(rel_path)
